@@ -1,10 +1,25 @@
 <?php
 
+use App\Http\Controllers\Admin\PostsController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\HomeController;
 
-Route::get('/', function () {
-    return view('welcome');
+
+Route::get('/', [HomeController::class, 'index']);
+Route::get('/posts/{post}', [HomeController::class, 'show']);
+
+
+
+Route::prefix('/admin')->name('admin.')->group(function () {
+    Route::prefix('/posts')
+        ->name('posts.')
+        ->controller(PostsController::class)
+        ->group(function () {
+            Route::get('/', 'index')->name(name: 'index');
+            Route::get('/create', 'create')->name('create');
+            Route::post('/store', 'store')->name('store');
+        });
 });
 
 Route::get('/dashboard', function () {
@@ -17,4 +32,4 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-require __DIR__.'/auth.php';
+require __DIR__ . '/auth.php';
