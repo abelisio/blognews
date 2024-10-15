@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Post;
 use Illuminate\Support\Str;
+use Illuminate\Support\Facades\Storage;
 
 class PostsController extends Controller
 {
@@ -22,9 +23,9 @@ class PostsController extends Controller
 
     public function store(Request $request)
     {
-        dd($request->file('thumb')->store('posts', 'public'));
         $data = $request->all();
         $data['slug'] = Str::slug($data['title']);
+        $data['thumb'] = $request->thumb?->store('posts', 'public');
         Post::create($data);
 
         return redirect()->route('admin.posts.index');
@@ -39,7 +40,15 @@ class PostsController extends Controller
     public function update($post, Request $request)
     {
         $post = Post::findOrFail($post);
-        $post->update($request->all());
+
+        $data = $request->all();
+
+        if ($post->thumb) {
+            if ($post->thumb) Storage::disk('public')->delete($post->thumb);
+            $data['thumb'] = $request->thumb?->store('posts', 'public');
+        }
+
+        $post->update($data);
         return redirect()->route('admin.posts.edit', $post->id);
     }
 

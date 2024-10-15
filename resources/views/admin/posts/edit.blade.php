@@ -8,7 +8,7 @@
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
 
             <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg p-5">
-                <form action="{{ route('admin.posts.update', $post->id) }}" method="POST">
+                <form action="{{ route('admin.posts.update', $post->id) }}" method="POST" enctype="multipart/form-data">
                     @csrf
                     <div class="w-full mb-6"><label for="" class="block text=ehite mb-2">Título</label>
                         <input type="text" class="w-full rounded" name="title" value="{{ $post->title }}">
@@ -31,6 +31,20 @@
                             </div>
                         </div>
                     </div>
+
+                    <div class="w-full mb-6 bg-white p-2 flex">
+                        <div class="w-1/2">
+                            @if ($post->thumb)
+                                <img src="{{ asset('storage/' . $post->thumb) }}"
+                                    alt="Capa da Postagem: {{ $post->title }}">
+                            @endif
+                        </div>
+                        <div class="w-1/2 flex items-center justify-center">
+                            <label for="" class="block text=ehite mb-2 textt-black">Capa Postagem</label>
+                            <input type="file" class="W-full rounded" name="thumb">
+                        </div>
+                    </div>
+
                     <div class="w-full flex justify-end">
                         <button
                             class="mt-10 px-4 py-2 shadow rounded text-2xl
