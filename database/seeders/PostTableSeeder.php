@@ -23,8 +23,12 @@ class PostTableSeeder extends Seeder
         //     'created_at' => date('Y-m-d H:i:s'),
         //     'updated_at' => date('Y-m-d H:i:s')
         // ]);
-        Post::factory(5)->create();
+        // Post::factory(5)->create();
 
-        Post::factory(10)->active()->create();
+        // Post::factory(10)->active()->create();
+
+        \App\Models\User::factory(10)
+            ->hasPosts(5, ['is_active' => true])
+            ->create();
     }
 }
