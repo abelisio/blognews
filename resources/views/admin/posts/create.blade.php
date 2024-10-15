@@ -12,12 +12,22 @@
                     @csrf
                     <div class="w-full mb-6"><label for="" class="block text=ehite mb-2">Título</label>
                         <input type="text" class="w-full rounded" name="title">
+                        @error('title')
+                            <div class="mt-2 w-full rounded border boder-red-700 bg-red-200 text-red-700 font-bold p-2">
+                                {{ $message }}
+                            </div>
+                        @enderror
                     </div>
                     <div class="w-full mb-6"><label for="" class="block text=ehite mb-2">Descrição</label>
                         <input type="text" class="w-full rounded"name="description">
                     </div>
                     <div class="w-full mb-6"><label for="" class="block text=ehite mb-2">Conteúdo</label>
                         <input type="text" class="w-full rounded" name="body">
+                        @error('body')
+                            <div class="mt-2 w-full rounded border boder-red-700 bg-red-200 text-red-700 font-bold p-2">
+                                {{ $message }}
+                            </div>
+                        @enderror
                     </div>
                     <div class="w-full mb-6"><label for="" class="block text=ehite mb-2">Status</label>
                         <div class="flex justify-start gap-3">
@@ -30,6 +40,11 @@
                     <div class="w-full mb-6" bg-white p-2>
                         <label for="" class="block text=ehite mb-2 textt-black">Capa Postagem</label>
                         <input type="file" class="W-full rounded" name="thumb">
+                        @error('thumb')
+                            <div class="mt-2 w-full rounded border boder-red-700 bg-red-200 text-red-700 font-bold p-2">
+                                {{ $message }}
+                            </div>
+                        @enderror
                     </div>
                     <div class="w-full flex justify-end">
                         <button
