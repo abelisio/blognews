@@ -7,7 +7,7 @@
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="w-full mb-10 flex justify-end">
-                <a href="{{ route('admin.posts.create') }}" <a href="#"
+                <a href="{{ route('admin.posts.create') }}"
                     class="px-4 py-2 shadow rounded
                                                 text-write text-bold bg-green-700 hover:bg-green-900
                                                 transition ease-in-ou dutation-300">Criar
@@ -36,9 +36,8 @@
                                         {{ $post->is_active ? 'Ativo' : 'Inativo' }}
                                     </span>
                                 </td>
-
                                 <td class="px-2 py-4 text-left">
-                                    <a href="{{route('admin.posts.edit', $post)}}"
+                                    <a href="{{ route('admin.posts.edit', $post->id) }}"
                                         class="px-4 py-2 shadow rounded
                                                 text-write text-bold bg-blue-700 hover:bg-blue-900
                                                 transition ease-in-ou dutation-300">Editar</a>
