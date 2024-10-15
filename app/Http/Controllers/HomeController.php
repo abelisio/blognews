@@ -9,7 +9,7 @@ class HomeController extends Controller
 {
     public function index()
     {
-        $posts = Post::where('is_active', true)->paginate(5);
+        $posts = Post::where('is_active', true)->latest()->paginate(5);
 
         return view('posts.index', compact('posts'));
     }

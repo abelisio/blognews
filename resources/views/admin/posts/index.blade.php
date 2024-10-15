@@ -21,6 +21,7 @@
                             <th class="px-2 py-4 text-left">#</th>
                             <th class="px-2 py-4 text-left">Titulo</th>
                             <th class="px-2 py-4 text-left">Criado</th>
+                            <th class="px-2 py-4 text-left">Status</th>
                             <th class="px-2 py-4 text-left">Ações</th>
                         </tr>
                     </thead>
@@ -31,7 +32,13 @@
                                 <td class="px-2 py-4 text-left">{{ $post->title }}</td>
                                 <td class="px-2 py-4 text-left">{{ $post->created_at->format('d/m/Y H:i:s') }}</td>
                                 <td class="px-2 py-4 text-left">
-                                    <a href="#"
+                                    <span class=" font-bold {{ $post->is_active ? 'text-green-800' : 'text-red-800' }}">
+                                        {{ $post->is_active ? 'Ativo' : 'Inativo' }}
+                                    </span>
+                                </td>
+
+                                <td class="px-2 py-4 text-left">
+                                    <a href="{{route('admin.posts.edit', $post)}}"
                                         class="px-4 py-2 shadow rounded
                                                 text-write text-bold bg-blue-700 hover:bg-blue-900
                                                 transition ease-in-ou dutation-300">Editar</a>

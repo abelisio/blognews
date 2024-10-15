@@ -11,7 +11,7 @@ class PostsController extends Controller
 {
     public function index()
     {
-        $posts = Post::paginate(10);
+        $posts = Post::latest()->paginate(10);
         return view('admin.posts.index', compact('posts'));
     }
 
@@ -22,15 +22,23 @@ class PostsController extends Controller
 
     public function store(Request $request)
     {
-        $post = new Post();
-        $post->title = $request->title;
-        $post->description = $request->description;
-        $post->body = $request->body;
-        $post->is_active = $request->is_active;
-        $post->slug = Str::slug($request->title);
-
-        $post->save();
+        $data = $request->all();
+        $data['slug'] = Str::slug($data['title']);
+        Post::create($data);
 
         return redirect()->route('admin.posts.index');
+    }
+
+    public function edit($post)
+    {
+        $post = Post::findOrFail($post);
+        return view('admin.posts.edit', compact('post'));
+    }
+
+    public function update($post, Request $request)
+    {
+        dd($request->all());
+        // $post = Post::findOrFail($post);
+        // return view('admin.posts.edit', compact('post'));
     }
 }

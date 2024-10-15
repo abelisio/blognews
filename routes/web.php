@@ -19,6 +19,10 @@ Route::prefix('/admin')->name('admin.')->group(function () {
             Route::get('/', 'index')->name(name: 'index');
             Route::get('/create', 'create')->name('create');
             Route::post('/store', 'store')->name('store');
+            Route::post('/edit', 'edit')->name('edit');
+
+            Route::get('/{post}/edit', 'edit')->name('edit');
+            Route::post('/{post}/edit', 'update')->name('update');
         });
 });
 
