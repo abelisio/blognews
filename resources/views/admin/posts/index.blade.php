@@ -36,11 +36,18 @@
                                         {{ $post->is_active ? 'Ativo' : 'Inativo' }}
                                     </span>
                                 </td>
-                                <td class="px-2 py-4 text-left">
+                                <td class="px-2 py-4 text-left flex gap-2">
                                     <a href="{{ route('admin.posts.edit', $post->id) }}"
                                         class="px-4 py-2 shadow rounded
                                                 text-write text-bold bg-blue-700 hover:bg-blue-900
                                                 transition ease-in-ou dutation-300">Editar</a>
+                                    <form action="{{ route('admin.posts.destroy', $post->id) }}" method="POST">
+                                        @csrf
+                                        <button
+                                            class="px-4 py-2 shadow rounded
+                                                text-write text-bold bg-red-700 hover:bg-red-900
+                                                transition ease-in-ou dutation-300">Deletar</button>
+                                    </form>
                                 </td>
                             </tr>
                         @empty

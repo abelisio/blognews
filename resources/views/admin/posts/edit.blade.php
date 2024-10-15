@@ -8,22 +8,26 @@
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
 
             <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg p-5">
-                <form action="#" method="POST">
+                <form action="{{ route('admin.posts.update', $post->id) }}" method="POST">
                     @csrf
                     <div class="w-full mb-6"><label for="" class="block text=ehite mb-2">Título</label>
-                        <input type="text" class="w-full rounded" name="title">
+                        <input type="text" class="w-full rounded" name="title" value="{{ $post->title }}">
                     </div>
                     <div class="w-full mb-6"><label for="" class="block text=ehite mb-2">Descrição</label>
-                        <input type="text" class="w-full rounded"name="description">
+                        <input type="text" class="w-full rounded"name="description" value="{{ $post->description }}">
                     </div>
-                    <div class="w-full mb-6"><label for="" class="block text=ehite mb-2">Conteúdo</label>
-                        <input type="text" class="w-full rounded" name="body">
+                    <div class="w-full
+                            mb-6"><label for=""
+                            class="block text=ehite mb-2">Conteúdo</label>
+                        <input type="text" class="w-full rounded" name="body" value="{{ $post->body }}">
                     </div>
                     <div class="w-full mb-6"><label for="" class="block text=ehite mb-2">Status</label>
                         <div class="flex justify-start gap-3">
-                            <div><input type="radio" class="" name="is_active" value="1" checked> Ativo
+                            <div><input type="radio" class="" name="is_active" value="1"
+                                    @if ($post->is_active) checked @endif> Ativo
                             </div>
-                            <div> <input type="radio" class="" name="is_active" value="0"> Inativo
+                            <div> <input type="radio" class="" name="is_active" value="0"
+                                    @if (!$post->is_active) checked @endif> Inativo
                             </div>
                         </div>
                     </div>

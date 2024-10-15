@@ -37,8 +37,15 @@ class PostsController extends Controller
 
     public function update($post, Request $request)
     {
-        dd($request->all());
-        // $post = Post::findOrFail($post);
-        // return view('admin.posts.edit', compact('post'));
+        $post = Post::findOrFail($post);
+        $post->update($request->all());
+        return redirect()->route('admin.posts.edit', $post->id);
+    }
+
+    public function destroy($post)
+    {
+        $post = Post::findOrFail($post);
+        $post->delete();
+        return redirect()->back();
     }
 }
