@@ -27,6 +27,9 @@ Route::prefix('/admin')->name('admin.')->group(function () {
         });
 });
 
+
+
+
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
@@ -38,3 +41,5 @@ Route::middleware('auth')->group(function () {
 });
 
 require __DIR__ . '/auth.php';
+
+https://youtu.be/qMzJYfG6uI4?list=PLswa9HeoJUq9SdI-FUH9lw5Yn3Dt-UhZv

@@ -11,9 +11,10 @@ use App\Http\Requests\PostRequest;
 
 class PostsController extends Controller
 {
+    public function __construct(private Post $post) {}
     public function index()
     {
-        $posts = Post::latest()->paginate(10);
+        $posts = $this->post->latest()->paginate(10);
         return view('admin.posts.index', compact('posts'));
     }
 
@@ -27,20 +28,20 @@ class PostsController extends Controller
         $data = $request->all();
         $data['slug'] = Str::slug($data['title']);
         $data['thumb'] = $request->thumb?->store('posts', 'public');
-        Post::create($data);
+        $this->post->create($data);
 
         return redirect()->route('admin.posts.index');
     }
 
     public function edit($post)
     {
-        $post = Post::findOrFail($post);
+        $post = $this->post->findOrFail($post);
         return view('admin.posts.edit', compact('post'));
     }
 
     public function update($post, PostRequest $request)
     {
-        $post = Post::findOrFail($post);
+        $post = $this->post->findOrFail($post);
 
         $data = $request->all();
 
@@ -55,7 +56,7 @@ class PostsController extends Controller
 
     public function destroy($post)
     {
-        $post = Post::findOrFail($post);
+        $post = $this->post->findOrFail($post);
         $post->delete();
         return redirect()->back();
     }

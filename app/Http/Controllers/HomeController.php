@@ -7,15 +7,16 @@ use App\Models\Post;
 
 class HomeController extends Controller
 {
+    public function __construct(private Post $post) {}
     public function index()
     {
-        $posts = Post::where('is_active', true)->latest()->paginate(5);
+        $posts = $this->post->where('is_active', true)->latest()->paginate(5);
 
         return view('posts.index', compact('posts'));
     }
     public function show($post)
     {
-        $post = Post::where('slug', $post)->firstOrFail();
+        $post = $this->post->where('slug', $post)->firstOrFail();
 
         return view('posts.post', compact('post'));
     }
