@@ -8,7 +8,7 @@
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
 
             <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg p-5">
-                <form action="{{ route('admin.posts.store') }}" method="POST">
+                <form action="{{ route('admin.posts.store') }}" method="POST" enctype="multipart/form-data">
                     @csrf
                     <div class="w-full mb-6"><label for="" class="block text=ehite mb-2">Título</label>
                         <input type="text" class="w-full rounded" name="title">
@@ -26,6 +26,10 @@
                             <div> <input type="radio" class="" name="is_active" value="0"> Inativo
                             </div>
                         </div>
+                    </div>
+                    <div class="w-full mb-6" bg-white p-2>
+                        <label for="" class="block text=ehite mb-2 textt-black">Capa Postagem</label>
+                        <input type="file" class="W-full rounded" name="thumb">
                     </div>
                     <div class="w-full flex justify-end">
                         <button

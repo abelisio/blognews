@@ -22,6 +22,7 @@ class PostsController extends Controller
 
     public function store(Request $request)
     {
+        dd($request->file('thumb')->store('posts', 'public'));
         $data = $request->all();
         $data['slug'] = Str::slug($data['title']);
         Post::create($data);
