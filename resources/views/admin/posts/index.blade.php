@@ -2,6 +2,9 @@
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight">
             {{ __('Gerenciamento de Posts') }}
+            <div class="font-bold text-right text-blue-900 p-4">
+                <a href="{{ URL::previous() }}">Voltar</a>
+            </div>
         </h2>
     </x-slot>
     <div class="py-12">
@@ -13,6 +16,7 @@
                                                 transition ease-in-ou dutation-300">Criar
                     Post</a>
             </div>
+
             <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg">
 
                 <table class = "w-full bg-white rounded shadow p-4">

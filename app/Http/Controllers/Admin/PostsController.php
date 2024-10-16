@@ -20,6 +20,7 @@ class PostsController extends Controller
 
     public function create()
     {
+
         return view('admin.posts.create');
     }
 
@@ -29,6 +30,7 @@ class PostsController extends Controller
         $data['slug'] = Str::slug($data['title']);
         $data['thumb'] = $request->thumb?->store('posts', 'public');
         $this->post->create($data);
+
 
         return redirect()->route('admin.posts.index');
     }

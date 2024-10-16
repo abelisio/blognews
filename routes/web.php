@@ -41,5 +41,3 @@ Route::middleware('auth')->group(function () {
 });
 
 require __DIR__ . '/auth.php';
-
-https://youtu.be/qMzJYfG6uI4?list=PLswa9HeoJUq9SdI-FUH9lw5Yn3Dt-UhZv

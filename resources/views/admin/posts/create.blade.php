@@ -2,6 +2,9 @@
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight">
             {{ __('Cria Posts') }}
+            <div class="font-bold text-right text-blue-900 p-4">
+                <a href="{{ URL::previous() }}">Voltar</a>
+            </div>
         </h2>
     </x-slot>
     <div class="py-12">
@@ -48,12 +51,15 @@
                     </div>
 
 
+
+
                     <div class="w-full flex justify-end">
                         <button
                             class="mt-10 px-4 py-2 shadow rounded text-2xl
                                                 text-write text-bold bg-green-700 hover:bg-green-900
                                                 transition ease-in-ou dutation-300">Criar
                             Post</button>
+
                     </div>
                 </form>
             </div>
