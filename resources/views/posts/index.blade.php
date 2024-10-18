@@ -46,7 +46,9 @@
 
                         <div class="text-center" class="mb-5">
                             <label for="large-input"
-                                class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Large input</label>
+                                class=" p-3 block mb-2 text-sm text-left font-medium text-gray-900 dark:text-white">Deixe
+                                seu
+                                comentário aqui:</label>
                             {{ $errors->first('comment') }}
                             <form action="{{ route('comment', $post->id) }}" method="post">
                                 @csrf
@@ -64,10 +66,9 @@
                         <ul id="comments">
                             @forelse ($post->comments as $comment)
                                 <li>{{ $comment->comment }}
-                                    | <a class="font-bold text-right text-red-900 p-4"
-                                        href="{{ route('comment.destroy', $comment->id) }} ">
-                                        Deletar </a>
+
                                     <hr>
+                                    <br>
                                 </li>
                             @empty
                                 <li>Nenhum comentário para esse post</li>
