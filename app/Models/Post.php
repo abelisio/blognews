@@ -25,11 +25,8 @@ class Post extends Model
         return $this->belongsTo(User::class);
     }
 
-    public function toSearchableArray()
+    public function comments()
     {
-        return [
-            'title' => $this->title
-            // Add other searchable attributes
-        ];
+        return $this->hasMany(Comment::class);
     }
 }

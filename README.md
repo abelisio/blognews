@@ -41,7 +41,7 @@ composer install
 
 
 ```
-php artisan migrate
+php artisan migrate e npm run dev
 ```
 
 4. **Configuração da Conexão com o Banco de Dados:**

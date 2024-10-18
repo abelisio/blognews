@@ -1,5 +1,7 @@
 <?php
 
+
+use App\Http\Controllers\CommentController;
 use App\Http\Controllers\Admin\PostsController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
@@ -10,6 +12,9 @@ Route::get('/', [HomeController::class, 'index']);
 Route::get('/posts/{post}', [HomeController::class, 'show']);
 
 Route::get('/search', [HomeController::class, 'search']);
+
+Route::post('/comment/{post}', [CommentController::class, 'store'])->name('comment');
+Route::get('/comment/{comment}', [CommentController::class, 'destroy'])->name('comment.destroy');
 
 
 

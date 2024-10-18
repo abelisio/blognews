@@ -39,10 +39,44 @@
                             Criado
                             em {{ $post->created_at->diffForHumans() }}
                         </p>
-                        <a href="/posts/{{ $post->slug }}" class="font-bold text-right text-red-900 p-4"">
+                        <a href="/posts/{{ $post->slug }}" class="font-bold text-right text-red-900 p-4">
                             Leia Mais +
                             ...</a>
                         <hr>
+
+                        <div class="text-center" class="mb-5">
+                            <label for="large-input"
+                                class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Large input</label>
+                            {{ $errors->first('comment') }}
+                            <form action="{{ route('comment', $post->id) }}" method="post">
+                                @csrf
+                                <input type="hidden" name="post_id" value="{{ $post->id }}">
+                                <textarea name="comment" cols="45" rows="2"
+                                    class="block w-full p-4 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 text-base focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"></textarea> <br />
+                                <button type="submit"
+                                    class="text-white bg-blue-700 hover:bg-blue-800 focus:outline-none focus:ring-4 focus:ring-blue-300 font-medium rounded-full text-sm px-5 py-2.5 text-center me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+                                    Comentar
+                                </button>
+
+                            </form>
+                        </div>
+
+                        <ul id="comments">
+                            @forelse ($post->comments as $comment)
+                                <li>{{ $comment->comment }}
+                                    | <a class="font-bold text-right text-red-900 p-4"
+                                        href="{{ route('comment.destroy', $comment->id) }} ">
+                                        Deletar </a>
+                                    <hr>
+                                </li>
+                            @empty
+                                <li>Nenhum comentário para esse post</li>
+                            @endforelse
+                        </ul>
+
+
+
+
                     </div>
                 @empty
                     <h3>Nenhum post Encontrado!</h3>
