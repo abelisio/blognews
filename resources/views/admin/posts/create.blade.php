@@ -4,10 +4,6 @@
             {{ __('Cria Posts') }}
             <div class="font-bold text-right text-blue-900 p-4">
                 <a href="{{ URL::previous() }}">Voltar</a>
-                <button
-                    class="text-white bg-green-700 hover:bg-green-800 focus:outline-none focus:ring-4 focus:ring-green-300 font-medium rounded-full text-sm px-5 py-2.5 text-center me-2 mb-2 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800">Criar
-                    Post</button>
-
             </div>
         </h2>
     </x-slot>
@@ -36,6 +32,7 @@
                             </div>
                         @enderror
                     </div>
+
                     <div class="w-full mb-6"><label for="" class="block text=ehite mb-2">Status</label>
                         <div class="flex justify-start gap-3">
                             <div><input type="radio" class="" name="is_active" value="1" checked> Ativo
@@ -80,7 +77,12 @@
 
 
 
+        <div class="w-full flex justify-end p-3">
+            <button
+                class="text-white bg-green-700 hover:bg-green-800 focus:outline-none focus:ring-4 focus:ring-green-300 font-medium rounded-full text-sm px-5 py-2.5 text-center me-2 mb-2 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800">Criar
+                Post</button>
 
+        </div>
         </form>
     </div>
 
