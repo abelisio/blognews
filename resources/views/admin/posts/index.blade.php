@@ -11,11 +11,10 @@
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="w-full mb-10 flex justify-end">
                 <a href="{{ route('admin.posts.create') }}"
-                    class="px-4 py-2 shadow rounded
-                                                text-write text-bold bg-green-700 hover:bg-green-900
-                                                transition ease-in-ou dutation-300">Criar
+                    class="text-white bg-blue-700 hover:bg-blue-800 focus:outline-none focus:ring-4 focus:ring-blue-300 font-medium rounded-full text-sm px-5 py-2.5 text-center me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Criar
                     Post</a>
             </div>
+
 
             <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg">
 
@@ -42,16 +41,18 @@
                                 </td>
                                 <td class="px-2 py-4 text-left flex gap-2">
                                     <a href="{{ route('admin.posts.edit', $post->id) }}"
-                                        class="px-4 py-2 shadow rounded
-                                                text-write text-bold bg-blue-700 hover:bg-blue-900
-                                                transition ease-in-ou dutation-300">Editar</a>
+                                        class="text-white bg-green-700 hover:bg-green-800 focus:outline-none focus:ring-4 focus:ring-green-300 font-medium rounded-full text-sm px-5 py-2.5 text-center me-2 mb-2 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800">Editar</a>
                                     <form action="{{ route('admin.posts.destroy', $post->id) }}" method="POST">
+
+
+
                                         @csrf
                                         <button
-                                            class="px-4 py-2 shadow rounded
-                                                text-write text-bold bg-red-700 hover:bg-red-900
-                                                transition ease-in-ou dutation-300">Deletar</button>
+                                            class="text-white bg-red-700 hover:bg-red-800 focus:outline-none focus:ring-4 focus:ring-red-300 font-medium rounded-full text-sm px-5 py-2.5 text-center me-2 mb-2 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-900">Deletar</button>
                                     </form>
+
+
+
                                 </td>
                             </tr>
                         @empty

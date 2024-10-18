@@ -9,6 +9,8 @@ use App\Http\Controllers\HomeController;
 Route::get('/', [HomeController::class, 'index']);
 Route::get('/posts/{post}', [HomeController::class, 'show']);
 
+Route::get('/search', [HomeController::class, 'search']);
+
 
 
 Route::prefix('/admin')->name('admin.')->group(function () {

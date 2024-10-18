@@ -6,9 +6,11 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Symfony\Component\Console\Descriptor\Descriptor;
 
+
 class Post extends Model
 {
     use HasFactory;
+
     protected $fillable = [
         'title',
         'description',
@@ -21,5 +23,13 @@ class Post extends Model
     public function user()
     {
         return $this->belongsTo(User::class);
+    }
+
+    public function toSearchableArray()
+    {
+        return [
+            'title' => $this->title
+            // Add other searchable attributes
+        ];
     }
 }

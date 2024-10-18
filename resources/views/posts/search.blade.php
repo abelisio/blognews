@@ -15,12 +15,22 @@
                     class="block w-full p-4 ps-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                     placeholder="Busca por titulo .." required />
                 <button type="submit"
-                    class="text-white absolute end-2.5 bottom-2.5 bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Burcar</button>
+                    class="text-white absolute end-2.5 bottom-2.5 bg-blue-500 hover:bg-blue-700 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 dark:bg-blue-600 dark:hover:bg-blue-400 dark:focus:ring-blue-400">Burcar</button>
             </div>
+
         </form>
 
+        <div class="w-full mb-10 flex justify-end">
+            <a href="/"
+                class="text-white bg-yellow-400 hover:bg-yellow-500 focus:outline-none focus:ring-4 focus:ring-yellow-300 font-medium rounded-full text-sm px-5 py-2.5 text-center me-2 mb-2 dark:focus:ring-yellow-900">Voltar</a>
 
-        @forelse($posts as $post)
+
+
+
+        </div>
+
+
+        @forelse($search as $post)
             <div class="container mx-auto object-center px-5 lg:max-w-screen-sm ">
                 <div class="flex flex-col justify-between flex-1">
                     <div class="block mb-4 p-5 shadow-lg rounded-md">
@@ -52,5 +62,5 @@
     </div>
     </div>
     <div class="py-4">
-        {{ $posts->onEachSide(0)->links() }}
+        {{ $search->onEachSide(0)->links() }}
     </div>
