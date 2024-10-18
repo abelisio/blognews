@@ -11,14 +11,14 @@
                 <div class="grid grid-cols-2 divide-x">
                     <div class=" p-7 text-gray-900 dark:text-gray-100">
                         <a href="{{ route('admin.posts.index') }}"
-                            class=" grid justify-items-center text-3xl px-4 py-2 shadow rounded
+                            class=" grid justify-items-center text-3xl px-4 py-4 me-2 mb-2 shadow rounded
                                                 text-write text-bold bg-blue-400 hover:bg-blue-600
                                                 transition ease-in-ou dutation-300">Listar
                             Post</a>
                     </div>
                     <div class="p-7 text-gray-900 dark:text-gray-100">
                         <a href="{{ route('admin.posts.create') }}"
-                            class=" grid justify-items-center  text-3xl px-4 py-2 shadow rounded
+                            class=" grid justify-items-center  text-3xl px-4 py-4 me-2 mb-2 shadow rounded
                                                 text-write text-bold bg-green-400 hover:bg-green-600
                                                 transition ease-in-ou dutation-300">Criar
                             Post</a>

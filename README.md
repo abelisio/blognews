@@ -55,4 +55,13 @@ define('DB_NAME', 'nome_do_banco_de_dados');
 define('DB_USER', 'usuario');
 define('DB_PASS', 'senha');
 ```
+## Uso
 
+5. **Faça o registro de usuário para logar e criar/editar e deletar posts:**
+
+```
+http://127.0.0.1:8000/register
+```
+```
+http://127.0.0.1:8000/login
+```
